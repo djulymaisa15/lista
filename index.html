@@ -2,38 +2,44 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Guest List Premium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista VIP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Lista de Convidados</h1>
+    <div class="card">
+        <h1>GUEST LIST</h1>
         
-        <ul id="lista">
+        <ul id="lista-convidados">
             </ul>
 
-        <div class="stats">
-            Nomes com a letra "A": <span id="contagem">0</span>
+        <div class="contador-box">
+            <span>COMEÇAM COM A LETRA "A"</span>
+            <span id="num-a">0</span>
         </div>
     </div>
 
     <script>
-        const convidados = ["Alice", "Bruno", "Amanda", "Carlos", "Arthur", "Beatriz"];
-        const listaDoc = document.getElementById('lista');
-        let count = 0;
+        const nomes = ["Amanda", "Bruno", "Arthur", "Carlos", "Alice", "Daniel", "Augusto"];
+        const listaUI = document.getElementById('lista-convidados');
+        let totalA = 0;
 
-        convidados.forEach(nome => {
-            // Criando o elemento visual
-            let li = document.createElement('li');
-            li.textContent = nome; // O CSS deixará em maiúsculo
-            listaDoc.appendChild(li);
+        // Loop para processar os nomes
+        nomes.forEach(nome => {
+            // Criar item da lista
+            let item = document.createElement('li');
+            item.textContent = nome;
+            listaUI.appendChild(item);
 
-            // Lógica de contagem
-            if(nome.toUpperCase().startsWith('A')) count++;
+            // Contagem (Lógica Java-like)
+            if (nome.toUpperCase().startsWith('A')) {
+                totalA++;
+            }
         });
 
-        document.getElementById('contagem').textContent = count;
+        document.getElementById('num-a').textContent = totalA;
     </script>
+
 </body>
 </html>
