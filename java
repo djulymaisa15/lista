@@ -1,23 +1,20 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class GestorConvidados {
+public class ListaPremium {
     public static void main(String[] args) {
-        List<String> convidados = List.of("Alice", "Bruno", "Amanda", "Carlos", "Arthur", "Beatriz");
-        int contadorA = 0;
+        List<String> convidados = List.of("Amanda", "Bruno", "Arthur", "Carlos", "Alice", "Daniel", "Augusto");
 
-        System.out.println("=== PROCESSANDO LISTA ===");
+        // Loop e Transformação (Imprimindo bonito no console)
+        System.out.println("---------- LISTA VIP ----------");
+        convidados.forEach(nome -> System.out.println(">> " + nome.toUpperCase()));
 
-        for (String nome : convidados) {
-            // Imprime em maiúsculo
-            System.out.println(nome.toUpperCase());
+        // Contagem usando Stream API (Moderno)
+        long contadorA = convidados.stream()
+                .filter(n -> n.toUpperCase().startsWith("A"))
+                .count();
 
-            // Conta nomes que começam com 'A'
-            if (nome.toUpperCase().startsWith("A")) {
-                contadorA++;
-            }
-        }
-
-        System.out.println("Total de nomes com 'A': " + contadorA);
+        System.out.println("-------------------------------");
+        System.out.println("TOTAL COM LETRA 'A': " + contadorA);
     }
 }
