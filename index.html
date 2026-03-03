@@ -2,50 +2,56 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pet Shop - Busca de Letras</title>
+    <title>Pet Shop Interativo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="pet-card">
-        <h1>🐾 Pet Check-in</h1>
+        <h1>🐾 Pet Shop</h1>
         <ul id="lista-pets" class="pet-list"></ul>
 
-        <button id="btn-contar" class="pet-button">
-            Verificar Letra "A" 🐾
+        <button id="btn-verificar" class="pet-button">
+            VERIFICAR LETRA "A" 🐾
         </button>
 
-        <div id="resultado-container" class="resultado-hidden">
-            Nomes com a letra "A": <span id="count-a">0</span>
+        <div id="resultado">
+            Encontrei <span id="valor">0</span> nomes com "A"!
         </div>
     </div>
 
     <script>
         const pets = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
         const listaUl = document.getElementById('lista-pets');
-        let contadorA = 0;
 
-        // Loop com RANGE para exibir apenas nomes > 5 letras
+        // Criando a lista inicial (apenas > 5 letras)
         for (let i = 0; i < pets.length; i++) {
-            let nome = pets[i];
-            if (nome.length > 5) {
+            if (pets[i].length > 5) {
                 let li = document.createElement('li');
                 li.className = 'pet-item';
-                li.textContent = nome;
+                li.textContent = pets[i];
                 listaUl.appendChild(li);
-            }
-            
-            // Lógica: Se o nome CONTÉM a letra 'A'
-            if (nome.toUpperCase().includes('A')) {
-                contadorA++;
             }
         }
 
-        document.getElementById('btn-contar').addEventListener('click', function() {
-            const resDiv = document.getElementById('resultado-container');
-            document.getElementById('count-a').textContent = contadorA;
-            resDiv.className = 'resultado-visible';
-        });
+        // Fazendo o botão funcionar
+        document.getElementById('btn-verificar').onclick = function() {
+            const itens = document.querySelectorAll('.pet-item');
+            let contador = 0;
+
+            // Loop para checar cada item na tela
+            itens.forEach(item => {
+                if (item.textContent.toUpperCase().includes('A')) {
+                    item.classList.add('destaque-pet');
+                    contador++;
+                }
+            });
+
+            // Mostra o resultado final
+            const resDiv = document.getElementById('resultado');
+            document.getElementById('valor').textContent = contador;
+            resDiv.style.display = 'block';
+        };
     </script>
 </body>
 </html>
