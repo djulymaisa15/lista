@@ -1,35 +1,36 @@
-// A Lista de convidados pets
+// Lista de convidados
 const pets = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
 const listaUl = document.getElementById('lista-pets');
 
-// Lógica de filtragem: Apenas nomes > 5 letras
-// Simulando a função RANGE percorrendo o array
+// 1. Lógica RANGE + FILTRO (> 5 letras)
+// Coloca os nomes na tela assim que a página carrega
 for (let i = 0; i < pets.length; i++) {
-    let nomePet = pets[i];
+    let nome = pets[i];
     
-    if (nomePet.length > 5) {
+    if (nome.length > 5) {
         let li = document.createElement('li');
         li.className = 'pet-item';
-        li.textContent = nomePet;
+        li.textContent = nome;
         listaUl.appendChild(li);
     }
 }
 
-// Fazendo o botão funcionar
+// 2. Fazendo o BOTAO funcionar ao clicar
 document.getElementById('btn-verificar').onclick = function() {
-    const itensVisiveis = document.querySelectorAll('.pet-item');
+    const itens = document.querySelectorAll('.pet-item');
     let contador = 0;
 
-    itensVisiveis.forEach(pet => {
-        // Verifica se o nome possui a letra "A"
-        if (pet.textContent.toLowerCase().includes('a')) {
-            pet.classList.add('brilho'); // Ativa o CSS de brilho
+    // Loop para verificar quem tem a letra "A"
+    itens.forEach(item => {
+        // Se o nome contiver 'a' ou 'A'
+        if (item.textContent.toLowerCase().includes('a')) {
+            item.classList.add('brilho-ouro'); // Faz brilhar
             contador++;
         }
     });
 
-    // Mostra o placar com o total
-    const infoPlacar = document.getElementById('placar');
-    document.getElementById('valor').textContent = contador;
-    infoPlacar.classList.remove('hidden');
+    // Mostra o resultado final
+    const placar = document.getElementById('placar');
+    document.getElementById('resultado').textContent = contador;
+    placar.style.display = 'block';
 };
