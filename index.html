@@ -2,24 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Shop VIP System</title>
+    <title>Pet Shop VIP - Check-in</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="pet-card">
-        <div class="paw-icon">🐾</div>
-        <h1>Pet Check-in</h1>
-        <p class="desc">Lista: Nomes > 5 letras</p>
+        <h1>🐾 Pet Shop</h1>
+        <p class="aviso">Apenas nomes com mais de 5 letras</p>
         
         <ul id="lista-pets">
             </ul>
 
-        <button id="btn-verificar">VERIFICAR LETRA "A" 🐾</button>
+        <button id="btn-verificar" class="botao-pet">
+            CONTAR LETRAS "A" 🐾
+        </button>
 
-        <div id="placar" class="hidden">
-            Nomes com a letra "A": <span id="valor">0</span>
+        <div id="placar" class="escondido">
+            Encontramos <span id="resultado">0</span> nomes com "A"!
         </div>
     </div>
 
