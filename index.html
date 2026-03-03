@@ -2,45 +2,40 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Lista VIP Neon</title>
+    <title>Lista VIP Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>GUEST LIST</h1>
-            <div class="glow-line"></div>
-        </header>
-        
-        <ul id="lista-convidados">
+    <div class="card">
+        <h1>VIP GUESTS</h1>
+        <ul id="lista-nomes">
             </ul>
-
-        <div class="counter-card">
-            <span class="label">NOMES COM "A"</span>
-            <span id="total-a" class="number">0</span>
+        <div class="counter">
+            Nomes com a letra "A": <b id="total-a">0</b>
         </div>
     </div>
 
     <script>
-        const nomes = ["Amanda", "Bruno", "Arthur", "Carlos", "Alice", "Daniel", "Augusto"];
-        const listaElement = document.getElementById('lista-convidados');
-        let contador = 0;
+        const convidados = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
+        const listaUl = document.getElementById('lista-nomes');
+        let contadorA = 0;
 
-        nomes.forEach(nome => {
-            // Criação do item
-            const li = document.createElement('li');
+        convidados.forEach(nome => {
+            // Cria o item da lista
+            let li = document.createElement('li');
             li.textContent = nome;
-            listaElement.appendChild(li);
+            listaUl.appendChild(li);
 
-            // Lógica de contagem
-            if(nome.toUpperCase().startsWith('A')) {
-                contador++;
-                li.classList.add('highlight'); // Adiciona brilho especial se começar com A
+            // Conta se começa com A
+            if (nome.toUpperCase().startsWith('A')) {
+                contadorA++;
             }
         });
 
-        document.getElementById('total-a').textContent = contador;
+        // Atualiza o contador na tela
+        document.getElementById('total-a').textContent = contadorA;
     </script>
+
 </body>
 </html>
