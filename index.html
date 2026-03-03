@@ -2,56 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pet Shop Interativo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop VIP System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="pet-card">
-        <h1>🐾 Pet Shop</h1>
-        <ul id="lista-pets" class="pet-list"></ul>
+        <div class="paw-icon">🐾</div>
+        <h1>Pet Check-in</h1>
+        <p class="desc">Lista: Nomes > 5 letras</p>
+        
+        <ul id="lista-pets">
+            </ul>
 
-        <button id="btn-verificar" class="pet-button">
-            VERIFICAR LETRA "A" 🐾
-        </button>
+        <button id="btn-verificar">VERIFICAR LETRA "A" 🐾</button>
 
-        <div id="resultado">
-            Encontrei <span id="valor">0</span> nomes com "A"!
+        <div id="placar" class="hidden">
+            Nomes com a letra "A": <span id="valor">0</span>
         </div>
     </div>
 
-    <script>
-        const pets = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
-        const listaUl = document.getElementById('lista-pets');
-
-        // Criando a lista inicial (apenas > 5 letras)
-        for (let i = 0; i < pets.length; i++) {
-            if (pets[i].length > 5) {
-                let li = document.createElement('li');
-                li.className = 'pet-item';
-                li.textContent = pets[i];
-                listaUl.appendChild(li);
-            }
-        }
-
-        // Fazendo o botão funcionar
-        document.getElementById('btn-verificar').onclick = function() {
-            const itens = document.querySelectorAll('.pet-item');
-            let contador = 0;
-
-            // Loop para checar cada item na tela
-            itens.forEach(item => {
-                if (item.textContent.toUpperCase().includes('A')) {
-                    item.classList.add('destaque-pet');
-                    contador++;
-                }
-            });
-
-            // Mostra o resultado final
-            const resDiv = document.getElementById('resultado');
-            document.getElementById('valor').textContent = contador;
-            resDiv.style.display = 'block';
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
