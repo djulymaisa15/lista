@@ -1,33 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaConvidados {
+public class GestorConvidados {
     public static void main(String[] args) {
-        // Criando a lista de convidados
-        List<String> convidados = new ArrayList<>();
-        convidados.add("Alice");
-        convidados.add("Bruno");
-        convidados.add("Amanda");
-        convidados.add("Carlos");
-        convidados.add("Beatriz");
-        convidados.add("Arthur");
-
+        List<String> convidados = List.of("Alice", "Bruno", "Amanda", "Carlos", "Arthur", "Beatriz");
         int contadorA = 0;
 
-        System.out.println("--- Lista de Convidados ---");
+        System.out.println("=== PROCESSANDO LISTA ===");
 
-        // Loop para imprimir em maiúsculas e contar nomes com 'A'
         for (String nome : convidados) {
-            // Imprime em letras maiúsculas
+            // Imprime em maiúsculo
             System.out.println(nome.toUpperCase());
 
-            // Verifica se começa com 'A' (ignorando case)
+            // Conta nomes que começam com 'A'
             if (nome.toUpperCase().startsWith("A")) {
                 contadorA++;
             }
         }
 
-        System.out.println("---------------------------");
-        System.out.println("Total de nomes que começam com 'A': " + contadorA);
+        System.out.println("Total de nomes com 'A': " + contadorA);
     }
 }
