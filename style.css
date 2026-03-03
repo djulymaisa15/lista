@@ -1,65 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
 
-body {
-    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+public class PetShopCheckIn {
+    public static void main(String[] args) {
+        List<String> pets = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
+        
+        System.out.println("=== RELATÓRIO PET SHOP: NOMES LONGOS ===");
 
-.card {
-    background: #222;
-    border: 1px solid #d4af37;
-    border-radius: 20px;
-    padding: 30px;
-    width: 350px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    color: #d4af37;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    background: rgba(212, 175, 55, 0.05);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 10px;
-    text-transform: uppercase; /* FORÇA O MAIÚSCULO NO CSS */
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    transition: 0.3s;
-    letter-spacing: 1px;
-}
-
-li:hover {
-    background: #d4af37;
-    color: #000;
-    transform: scale(1.05);
-    font-weight: bold;
-}
-
-.counter {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: #888;
-    border-top: 1px solid #444;
-    padding-top: 15px;
-}
-
-.counter b {
-    color: #d4af37;
-    font-size: 1.2rem;
+        // Usando range para controlar os índices de 0 até o tamanho da lista
+        IntStream.range(0, pets.size()).forEach(i -> {
+            String nomePet = pets.get(i);
+            
+            // Filtro: apenas nomes com mais de 5 letras
+            if (nomePet.length() > 5) {
+                System.out.println("Senha #" + (i + 1) + ": " + nomePet.toUpperCase() + " (Processado)");
+            }
+        });
+    }
 }
