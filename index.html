@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Convidados</title>
+    <style>
+        /* CSS para visual e transformação */
+        body { font-family: sans-serif; padding: 20px; }
+        
+        #lista-convidados {
+            list-style: none;
+            padding: 0;
+        }
 
+        .convidado {
+            text-transform: uppercase; /* Transforma em maiúsculas visualmente */
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .resultado {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Meus Convidados</h2>
+    <ul id="lista-convidados"></ul>
+    <div class="resultado" id="contador-a"></div>
+
+    <script>
+        // A Lista de nomes
+        const convidados = ["Alice", "Bruno", "Amanda", "Carlos", "Beatriz", "Arthur", "Antonio"];
+        
+        const listaUl = document.getElementById('lista-convidados');
+        let contadorA = 0;
+
+        // Loop para processar a lista
+        convidados.forEach(nome => {
+            // 1. Criar o elemento da lista
+            let li = document.createElement('li');
+            li.className = 'convidado';
+            li.textContent = nome; // O CSS cuidará do UPPERCASE
+            
+            // 2. Adicionar na página
+            listaUl.appendChild(li);
+
+            // 3. Lógica de contagem (Letra A)
+            if (nome.toUpperCase().startsWith('A')) {
+                contadorA++;
+            }
+        });
+
+        // Exibir o resultado final
+        document.getElementById('contador-a').textContent = 
+            `Total de nomes que começam com "A": ${contadorA}`;
+    </script>
+
+</body>
+</html>
