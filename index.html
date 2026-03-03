@@ -2,20 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pet Shop Check-in</title>
+    <title>Pet Shop Interativo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="pet-card">
         <h1>🐾 Pet Check-in</h1>
-        <p>Nomes com mais de 5 letras:</p>
+        <p class="subtitle">Nomes com mais de 5 letras:</p>
         
         <ul id="lista-pets" class="pet-list">
             </ul>
 
-        <div class="counter-badge">
-            Pets com a letra "A": <span id="count-a">0</span>
+        <button id="btn-contar" class="pet-button">
+            Contar nomes com "A" 🐾
+        </button>
+
+        <div id="resultado-container" class="resultado-hidden">
+            Nomes com a letra "A": <span id="count-a">0</span>
         </div>
     </div>
 
@@ -24,25 +28,31 @@
         const listaUl = document.getElementById('lista-pets');
         let contadorA = 0;
 
-        // Função que simula o Range (i vai de 0 até o final da lista)
+        // Simulando o RANGE (de 0 até o tamanho da lista)
         for (let i = 0; i < pets.length; i++) {
             let nome = pets[i];
 
-            // Filtro de tamanho (mais de 5 letras)
             if (nome.length > 5) {
                 let li = document.createElement('li');
                 li.className = 'pet-item';
-                li.textContent = nome; // O CSS transforma em MAIÚSCULA
+                li.textContent = nome; // CSS transforma em MAIÚSCULO
                 listaUl.appendChild(li);
 
-                // Lógica da letra A
                 if (nome.toUpperCase().startsWith('A')) {
                     contadorA++;
                 }
             }
         }
 
-        document.getElementById('count-a').textContent = contadorA;
+        // Função do Botão
+        document.getElementById('btn-contar').addEventListener('click', function() {
+            const resDiv = document.getElementById('resultado-container');
+            const countSpan = document.getElementById('count-a');
+            
+            countSpan.textContent = contadorA;
+            resDiv.classList.remove('resultado-hidden');
+            resDiv.classList.add('resultado-visible');
+        });
     </script>
 </body>
 </html>
