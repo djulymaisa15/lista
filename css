@@ -1,1 +1,7 @@
 
+/* Transforma o texto de todos os itens da lista em maiúsculas */
+li.convidado {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    color: #2c3e50;
+}
