@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap');
 
 body {
     background: #e0f2f1;
@@ -15,14 +15,17 @@ body {
     border-radius: 40px;
     padding: 30px;
     width: 320px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     border: 4px solid #4db6ac;
     text-align: center;
 }
 
-h1 { font-family: 'Fredoka One', cursive; color: #00796b; }
+.paw-icon { font-size: 40px; margin-bottom: 10px; }
 
-.pet-list { list-style: none; padding: 0; }
+h1 { font-family: 'Fredoka One', cursive; color: #00796b; margin: 0; }
+.desc { color: #888; font-size: 0.8rem; margin-bottom: 20px; }
+
+ul { list-style: none; padding: 0; }
 
 .pet-item {
     background: #f1f8e9;
@@ -30,21 +33,21 @@ h1 { font-family: 'Fredoka One', cursive; color: #00796b; }
     padding: 12px;
     border-radius: 15px;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
+    color: #333;
     border: 2px solid #a5d6a7;
-    transition: 0.5s; /* Suaviza a mudança de cor */
+    transition: 0.4s ease;
 }
 
-/* Classe que será ativada pelo botão */
-.destaque-pet {
-    background: #fff176 !important;
+/* Classe de brilho que o JS vai injetar */
+.brilho {
+    background: #fff59d !important;
     border-color: #fbc02d !important;
     color: #f57f17 !important;
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(251, 192, 45, 0.5);
 }
 
-.pet-button {
+#btn-verificar {
     background: #ff7043;
     color: white;
     border: none;
@@ -52,17 +55,22 @@ h1 { font-family: 'Fredoka One', cursive; color: #00796b; }
     border-radius: 50px;
     font-family: 'Fredoka One', cursive;
     cursor: pointer;
-    box-shadow: 0 4px #d84315;
-    margin-top: 15px;
+    box-shadow: 0 5px 0 #d84315;
+    margin-top: 20px;
 }
 
-.pet-button:active { transform: translateY(4px); box-shadow: none; }
+#btn-verificar:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
 
-#resultado {
+.hidden { display: none; }
+
+#placar {
     margin-top: 20px;
     padding: 15px;
     background: #00796b;
     color: white;
     border-radius: 20px;
-    display: none; /* Começa escondido */
+    font-weight: bold;
 }
