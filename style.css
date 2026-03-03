@@ -1,21 +1,75 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.IntStream;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600&display=swap');
 
-public class PetShopCheckIn {
-    public static void main(String[] args) {
-        List<String> pets = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
-        
-        System.out.println("=== RELATÓRIO PET SHOP: NOMES LONGOS ===");
+body {
+    background: #f0fdfa;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-        // Usando range para controlar os índices de 0 até o tamanho da lista
-        IntStream.range(0, pets.size()).forEach(i -> {
-            String nomePet = pets.get(i);
-            
-            // Filtro: apenas nomes com mais de 5 letras
-            if (nomePet.length() > 5) {
-                System.out.println("Senha #" + (i + 1) + ": " + nomePet.toUpperCase() + " (Processado)");
-            }
-        });
-    }
+.pet-card {
+    background: white;
+    border-radius: 40px;
+    padding: 35px;
+    width: 320px;
+    box-shadow: 0 15px 30px rgba(0, 131, 143, 0.2);
+    border: 5px solid #b2ebf2;
+    text-align: center;
+}
+
+h1 { font-family: 'Fredoka One', cursive; color: #00838f; margin: 0; }
+.subtitle { font-size: 0.8rem; color: #666; margin-bottom: 20px; }
+
+.pet-list { list-style: none; padding: 0; }
+
+.pet-item {
+    background: #e1f5fe;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0277bd;
+    border: 2px solid #81d4fa;
+}
+
+.pet-button {
+    background: #ffb74d;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: 0.3s;
+    box-shadow: 0 5px 0 #fb8c00;
+}
+
+.pet-button:hover { background: #ffa726; transform: translateY(-2px); }
+.pet-button:active { transform: translateY(3px); box-shadow: none; }
+
+/* Estilos do Resultado */
+.resultado-hidden { display: none; }
+
+.resultado-visible {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background: #00acc1;
+    color: white;
+    border-radius: 20px;
+    animation: bounceIn 0.5s ease;
+}
+
+#count-a { font-size: 1.5rem; font-weight: 800; }
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); opacity: 1; }
 }
