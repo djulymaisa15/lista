@@ -32,30 +32,37 @@ h1 { font-family: 'Fredoka One', cursive; color: #00796b; }
     text-transform: uppercase;
     font-weight: bold;
     border: 2px solid #a5d6a7;
+    transition: 0.5s; /* Suaviza a mudança de cor */
+}
+
+/* Classe que será ativada pelo botão */
+.destaque-pet {
+    background: #fff176 !important;
+    border-color: #fbc02d !important;
+    color: #f57f17 !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(251, 192, 45, 0.5);
 }
 
 .pet-button {
     background: #ff7043;
     color: white;
     border: none;
-    padding: 15px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     font-family: 'Fredoka One', cursive;
     cursor: pointer;
     box-shadow: 0 4px #d84315;
-    transition: 0.2s;
+    margin-top: 15px;
 }
 
 .pet-button:active { transform: translateY(4px); box-shadow: none; }
 
-.resultado-hidden { display: none; }
-
-.resultado-visible {
-    display: block;
+#resultado {
     margin-top: 20px;
     padding: 15px;
     background: #00796b;
     color: white;
     border-radius: 20px;
-    font-weight: bold;
+    display: none; /* Começa escondido */
 }
