@@ -2,18 +2,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ListaFiltrada {
+public class PetShopCheckIn {
     public static void main(String[] args) {
-        List<String> nomes = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
+        List<String> pets = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
         
-        System.out.println("--- NOMES COM MAIS DE 5 LETRAS ---");
+        System.out.println("=== RELATÓRIO PET SHOP: NOMES LONGOS ===");
 
-        // Usando range para percorrer a lista pelo índice
-        IntStream.range(0, nomes.size()).forEach(i -> {
-            String nome = nomes.get(i);
+        // Usando range para controlar os índices de 0 até o tamanho da lista
+        IntStream.range(0, pets.size()).forEach(i -> {
+            String nomePet = pets.get(i);
             
-            if (nome.length() > 5) {
-                System.out.println("Índice " + i + ": " + nome.toUpperCase());
+            // Filtro: apenas nomes com mais de 5 letras
+            if (nomePet.length() > 5) {
+                System.out.println("Senha #" + (i + 1) + ": " + nomePet.toUpperCase() + " (Processado)");
             }
         });
     }
