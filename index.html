@@ -2,40 +2,47 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Lista VIP Premium</title>
+    <title>Pet Shop Check-in</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="card">
-        <h1>VIP GUESTS</h1>
-        <ul id="lista-nomes">
+    <div class="pet-card">
+        <h1>🐾 Pet Check-in</h1>
+        <p>Nomes com mais de 5 letras:</p>
+        
+        <ul id="lista-pets" class="pet-list">
             </ul>
-        <div class="counter">
-            Nomes com a letra "A": <b id="total-a">0</b>
+
+        <div class="counter-badge">
+            Pets com a letra "A": <span id="count-a">0</span>
         </div>
     </div>
 
     <script>
-        const convidados = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
-        const listaUl = document.getElementById('lista-nomes');
+        const pets = ["Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily"];
+        const listaUl = document.getElementById('lista-pets');
         let contadorA = 0;
 
-        convidados.forEach(nome => {
-            // Cria o item da lista
-            let li = document.createElement('li');
-            li.textContent = nome;
-            listaUl.appendChild(li);
+        // Função que simula o Range (i vai de 0 até o final da lista)
+        for (let i = 0; i < pets.length; i++) {
+            let nome = pets[i];
 
-            // Conta se começa com A
-            if (nome.toUpperCase().startsWith('A')) {
-                contadorA++;
+            // Filtro de tamanho (mais de 5 letras)
+            if (nome.length > 5) {
+                let li = document.createElement('li');
+                li.className = 'pet-item';
+                li.textContent = nome; // O CSS transforma em MAIÚSCULA
+                listaUl.appendChild(li);
+
+                // Lógica da letra A
+                if (nome.toUpperCase().startsWith('A')) {
+                    contadorA++;
+                }
             }
-        });
+        }
 
-        // Atualiza o contador na tela
-        document.getElementById('total-a').textContent = contadorA;
+        document.getElementById('count-a').textContent = contadorA;
     </script>
-
 </body>
 </html>
