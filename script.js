@@ -1,21 +1,24 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class GuestManager {
+public class ListaVipPro {
     public static void main(String[] args) {
-        List<String> convidados = Arrays.asList("Amanda", "Bruno", "Arthur", "Carlos", "Alice", "Daniel", "Augusto");
+        List<String> convidados = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
+        int contadorA = 0;
 
-        System.out.println("--- LISTA PROCESSADA ---");
+        System.out.println("--- LISTA DE CONVIDADOS (MAIÚSCULAS) ---");
 
-        // Loop para imprimir em Maiúsculas
-        convidados.forEach(nome -> System.out.println(nome.toUpperCase()));
+        for (String nome : convidados) {
+            // Imprime cada nome em LETRA MAIÚSCULA
+            System.out.println(nome.toUpperCase());
 
-        // Contagem de nomes que começam com 'A'
-        long totalA = convidados.stream()
-                                .filter(n -> n.toUpperCase().startsWith("A"))
-                                .count();
+            // Verifica se começa com 'A' (ou 'a')
+            if (nome.toLowerCase().startsWith("a")) {
+                contadorA++;
+            }
+        }
 
-        System.out.println("------------------------");
-        System.out.println("Total com a letra 'A': " + totalA);
+        System.out.println("---------------------------------------");
+        System.out.println("Total de nomes que começam com 'A': " + contadorA);
     }
 }
