@@ -2,44 +2,45 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista VIP</title>
+    <title>Lista VIP Neon</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="card">
-        <h1>GUEST LIST</h1>
+    <div class="container">
+        <header>
+            <h1>GUEST LIST</h1>
+            <div class="glow-line"></div>
+        </header>
         
         <ul id="lista-convidados">
             </ul>
 
-        <div class="contador-box">
-            <span>COMEÇAM COM A LETRA "A"</span>
-            <span id="num-a">0</span>
+        <div class="counter-card">
+            <span class="label">NOMES COM "A"</span>
+            <span id="total-a" class="number">0</span>
         </div>
     </div>
 
     <script>
         const nomes = ["Amanda", "Bruno", "Arthur", "Carlos", "Alice", "Daniel", "Augusto"];
-        const listaUI = document.getElementById('lista-convidados');
-        let totalA = 0;
+        const listaElement = document.getElementById('lista-convidados');
+        let contador = 0;
 
-        // Loop para processar os nomes
         nomes.forEach(nome => {
-            // Criar item da lista
-            let item = document.createElement('li');
-            item.textContent = nome;
-            listaUI.appendChild(item);
+            // Criação do item
+            const li = document.createElement('li');
+            li.textContent = nome;
+            listaElement.appendChild(li);
 
-            // Contagem (Lógica Java-like)
-            if (nome.toUpperCase().startsWith('A')) {
-                totalA++;
+            // Lógica de contagem
+            if(nome.toUpperCase().startsWith('A')) {
+                contador++;
+                li.classList.add('highlight'); // Adiciona brilho especial se começar com A
             }
         });
 
-        document.getElementById('num-a').textContent = totalA;
+        document.getElementById('total-a').textContent = contador;
     </script>
-
 </body>
 </html>
