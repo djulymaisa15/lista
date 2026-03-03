@@ -1,24 +1,20 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
-public class ListaVipPro {
+public class ListaFiltrada {
     public static void main(String[] args) {
-        List<String> convidados = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
-        int contadorA = 0;
+        List<String> nomes = Arrays.asList("Jorge", "Joaquim", "Mikaelly", "Laura", "Nicole", "Thamily");
+        
+        System.out.println("--- NOMES COM MAIS DE 5 LETRAS ---");
 
-        System.out.println("--- LISTA DE CONVIDADOS (MAIÚSCULAS) ---");
-
-        for (String nome : convidados) {
-            // Imprime cada nome em LETRA MAIÚSCULA
-            System.out.println(nome.toUpperCase());
-
-            // Verifica se começa com 'A' (ou 'a')
-            if (nome.toLowerCase().startsWith("a")) {
-                contadorA++;
+        // Usando range para percorrer a lista pelo índice
+        IntStream.range(0, nomes.size()).forEach(i -> {
+            String nome = nomes.get(i);
+            
+            if (nome.length() > 5) {
+                System.out.println("Índice " + i + ": " + nome.toUpperCase());
             }
-        }
-
-        System.out.println("---------------------------------------");
-        System.out.println("Total de nomes que começam com 'A': " + contadorA);
+        });
     }
 }
